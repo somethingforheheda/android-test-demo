@@ -27,6 +27,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 # 运行Android仪器测试
 ./gradlew connectedAndroidTest
+
+# 运行单个测试类
+./gradlew test --tests "com.example.test.ExampleUnitTest"
+
+# 运行单个测试方法
+./gradlew test --tests "com.example.test.ExampleUnitTest.addition_isCorrect"
 ```
 
 ### 启动应用
@@ -61,9 +67,10 @@ app/src/main/java/com/example/test/
 │   ├── model/                  # 数据模型和Repository
 │   ├── viewmodel/              # ViewModel层
 │   └── view/                   # Activity和Adapter
-├── idletask/                   # 空闲任务执行器演示
-├── frametask/                  # 帧任务分割器演示
-├── performance/                # 性能分析工具演示
+├── idletask/                   # IdleTaskExecutor - 利用主线程空闲时间执行任务
+├── frametask/                  # FrameTaskSplitter - 按帧分割任务避免卡顿
+├── prioritytask/               # PriorityTaskSplitter - 带优先级的任务调度器
+├── performance/                # Perfetto性能追踪演示
 └── tests/                      # 各类UI和功能测试
 ```
 
