@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F5F5F5">
+
+    <!-- 标题栏 -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MVVM架构演示 - 产品列表"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:gravity="center"
+        android:background="#2196F3"
+        android:elevation="4dp"
+        android:padding="16dp" />
+
+    <!-- 搜索和筛选区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        android:elevation="2dp"
+        android:padding="16dp">
+
+        <!-- 搜索框 -->
+        <EditText
+            android:id="@+id/et_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="搜索产品..."
+            android:background="#EEEEEE"
+            android:padding="12dp"
+            android:layout_marginBottom="12dp" />
+
+        <!-- 操作按钮区域 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btn_refresh"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="刷新"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="#4CAF50" />
+
+            <Button
+                android:id="@+id/btn_filter"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="筛选分类"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:backgroundTint="#FF9800" />
+
+            <Button
+                android:id="@+id/btn_statistics"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="统计"
+                android:layout_marginStart="4dp"
+                android:backgroundTint="#9C27B0" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- 状态指示区域 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 加载进度条 -->
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="16dp"
+            android:visibility="gone" />
+
+        <!-- 错误信息 -->
+        <TextView
+            android:id="@+id/tv_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="加载失败"
+            android:textColor="#F44336"
+            android:textSize="14sp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:background="#FFEBEE"
+            android:visibility="gone" />
+
+        <!-- 当前状态显示 -->
+        <TextView
+            android:id="@+id/tv_current_filter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="显示：全部产品"
+            android:textSize="12sp"
+            android:textColor="#666666"
+            android:gravity="center"
+            android:padding="8dp"
+            android:background="#E8F5E8" />
+
+    </LinearLayout>
+
+    <!-- 产品列表 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_products"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false" />
+
+    <!-- 统计信息弹窗背景 -->
+    <FrameLayout
+        android:id="@+id/fl_statistics_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80000000"
+        android:visibility="gone">
+
+        <!-- 统计信息卡片 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="32dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="24dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="统计信息"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#333333"
+                    android:gravity="center"
+                    android:layout_marginBottom="16dp" />
+
+                <TextView
+                    android:id="@+id/tv_statistics_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="统计数据加载中..."
+                    android:textSize="14sp"
+                    android:textColor="#666666"
+                    android:layout_marginBottom="16dp"
+                    android:lineSpacingExtra="4dp" />
+
+                <Button
+                    android:id="@+id/btn_close_statistics"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="关闭"
+                    android:backgroundTint="#607D8B" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
+
+</LinearLayout>

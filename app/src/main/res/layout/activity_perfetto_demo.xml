@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <Button
+            android:id="@+id/btn_quick"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="快速操作 (quickOperation)" />
+
+        <Button
+            android:id="@+id/btn_heavy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="CPU 密集 (heavyComputation)" />
+
+        <Button
+            android:id="@+id/btn_io"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="模拟 I/O (ioOperation)" />
+
+        <Button
+            android:id="@+id/btn_nested"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="嵌套 Trace (nestedTraces)" />
+
+        <Button
+            android:id="@+id/btn_async"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="异步 Trace (asyncTrace)" />
+
+        <TextView
+            android:id="@+id/result_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:layout_marginTop="16dp"
+            android:text="结果输出："/>
+
+    </LinearLayout>
+</ScrollView> 

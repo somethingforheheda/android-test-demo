@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardFragmentItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="6dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:gravity="center_vertical">
+
+        <!-- Fragment 图标 -->
+        <TextView
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:text="F"
+            android:textSize="24sp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:background="@drawable/circle_background" />
+
+        <!-- 文本内容 -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="16dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvFragmentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fragment 名称"
+                android:textSize="16sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvFragmentDescription"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Fragment 描述"
+                android:textSize="13sp"
+                android:textColor="#666666" />
+
+        </LinearLayout>
+
+        <!-- 箭头图标 -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="▶"
+            android:textSize="16sp"
+            android:textColor="#999999" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

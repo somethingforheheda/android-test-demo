@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@android:color/holo_blue_light">
+
+    <!-- Include布局的标题 -->
+    <TextView
+        android:id="@+id/include_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Include布局标题"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Include布局的描述 -->
+    <TextView
+        android:id="@+id/include_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="这是一个被include的布局示例"
+        android:textSize="14sp"
+        android:textColor="@android:color/white"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Include布局中的按钮 -->
+    <Button
+        android:id="@+id/include_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Include中的按钮"
+        android:textColor="@android:color/holo_blue_light"
+        android:backgroundTint="@android:color/white" />
+
+</LinearLayout>

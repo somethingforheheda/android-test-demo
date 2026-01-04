@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- 标题 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="优先级任务调度演示"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 说明文字 -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="演示多级优先级队列管理、动态时间片分配、系统负载感知的任务调度策略"
+            android:textSize="14sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- 控制面板 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="执行控制"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- 执行按钮行 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <Button
+                        android:id="@+id/btn_start_priority"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="优先级执行"
+                        android:textSize="12sp"
+                        android:layout_marginEnd="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_start_normal"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="普通执行"
+                        android:textSize="12sp"
+                        android:layout_marginStart="4dp"
+                        android:layout_marginEnd="4dp" />
+
+                    <Button
+                        android:id="@+id/btn_clear"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="清空"
+                        android:textSize="12sp"
+                        android:layout_marginStart="4dp" />
+
+                </LinearLayout>
+
+                <!-- 添加任务按钮 -->
+                <Button
+                    android:id="@+id/btn_add_tasks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="添加演示任务集"
+                    android:textSize="12sp"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- 自适应开关 -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="自适应时间片："
+                        android:layout_marginEnd="8dp" />
+
+                    <Switch
+                        android:id="@+id/switch_adaptive"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:checked="true" />
+
+                </LinearLayout>
+
+                <!-- 时间片调节 -->
+                <TextView
+                    android:id="@+id/tv_time_slice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="时间片: 8ms"
+                    android:layout_marginBottom="4dp" />
+
+                <SeekBar
+                    android:id="@+id/seekbar_time_slice"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="32"
+                    android:progress="8" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 自定义任务面板 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="自定义任务"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="优先级："
+                        android:layout_marginEnd="8dp" />
+
+                    <Spinner
+                        android:id="@+id/spinner_priority"
+                        android:layout_width="120dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="8dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="数量："
+                        android:layout_marginEnd="4dp" />
+
+                    <EditText
+                        android:id="@+id/et_task_count"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:text="5"
+                        android:gravity="center"
+                        android:layout_marginEnd="8dp" />
+
+                    <Button
+                        android:id="@+id/btn_add_custom_task"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="添加"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 状态显示 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="状态信息"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- 执行状态 -->
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="状态: 就绪"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- 进度条 -->
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:max="100"
+                    android:progress="0"
+                    android:visibility="gone"
+                    android:layout_marginBottom="8dp" />
+
+                <!-- 系统负载 -->
+                <TextView
+                    android:id="@+id/tv_system_load"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="系统负载: CPU: 0% 内存: 0%"
+                    android:textSize="14sp"
+                    android:layout_marginBottom="4dp" />
+
+                <!-- 队列状态 -->
+                <TextView
+                    android:id="@+id/tv_queue_status"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="队列状态: 空闲"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 性能统计 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="性能分析"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_performance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="性能统计: 暂无数据"
+                    android:textSize="12sp"
+                    android:typeface="monospace" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 执行对比 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="执行对比"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:id="@+id/tv_comparison"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="执行对比: 暂无数据"
+                    android:textSize="12sp"
+                    android:typeface="monospace" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <!-- 执行日志 -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="12dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="执行日志"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="8dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:background="#F5F5F5"
+                    android:padding="4dp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+</ScrollView>

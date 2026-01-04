@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:id="@android:id/background">
+    <shape android:shape="rectangle">
+      <corners android:radius="300dp" />
+      <solid android:color="#7A555555" /> <!-- 模拟 @color/post_555555_alpha_48 -->
+    </shape>
+  </item>
+  <item android:id="@android:id/progress">
+    <clip android:clipOrientation="horizontal">
+      <shape android:shape="rectangle">
+        <corners android:radius="300dp" />
+        <solid android:color="#2196F3" /> <!-- 模拟 @color/download_bar_progress (蓝色) -->
+      </shape>
+    </clip>
+  </item>
+</layer-list>
