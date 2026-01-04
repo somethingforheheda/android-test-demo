@@ -83,3 +83,7 @@ lint/tmp/
 # Node modules (if any)
 node_modules/
 package-lock.json
+
+# Claude Code instructions (local only)
+CLAUDE.md
+.claude/
